@@ -23,8 +23,8 @@ for i in l:  # 동일
     dic['title'] = i.find('h3').text
     item.append(dic)  # 동일
 
-# db에 저장
-print('db에 저장')  # 동일
-db = getLocalDB()  # 동일
-insertItem(db, item)  # 동일
-db.close()  # 동일
+# # db에 저장
+# print('db에 저장')  # 동일
+# db = getLocalDB()  # 동일
+# insertItem(db, item)  # 동일
+# db.close()  # 동일
