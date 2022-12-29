@@ -15,12 +15,12 @@
       <div style="height: 50px"></div>
       <div>
         <input
-          id="input"
+          id="search"
           style="margin-left: 10px"
           type="text"
           placeholder="검색어를 입력하세요"
         />
-        <button style="margin: 10px">검색</button>
+        <button id="btn" style="margin: 10px">검색</button>
       </div>
 
       <select id="country" style="margin: 10px"></select>
@@ -76,6 +76,12 @@
         { name: "벨기에", lat: 50.8503, lng: 4.3517 },
       ];
 
+      country.sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      });
+
       news = [{ name: "정치" }, { name: "경제" }, { name: "스포츠" }];
 
       const domCountry = document.getElementById("country");
@@ -85,17 +91,35 @@
         return `<option value="${key + 1}">${name}</option>`;
       });
 
+      domCountry.addEventListener("change", (e) => {
+        const { lat, lng } = country[e.target.value - 1];
+        map.setCenter({ lat, lng });
+      });
+
       const domNews = document.getElementById("news");
 
       domNews.innerHTML = `<option value="0" hidden selected>카테고리를 선택하세요</option>`;
       domNews.innerHTML += news.map(({ name }, key) => {
         return `<option value="${key + 1}">${name}</option>`;
       });
+
+      const searchBtn = document.getElementById("btn");
+
+      searchBtn.addEventListener("click", () => {
+        const search = document.getElementById("search").value;
+        const target = country.find((item) => item.name === search);
+        if (target) map.setCenter({ lat: target.lat, lng: target.lng });
+      });
+
+      document.getElementById("search").addEventListener("keyup", (e) => {
+        if (e.keyCode === 13) searchBtn.click();
+      });
     </script>
 
     <script>
+      var map;
       function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
+        map = new google.maps.Map(document.getElementById("map"), {
           zoom: 8,
           center: { lat: 36.5, lng: 127.5 },
           mapTypeControl: false,
