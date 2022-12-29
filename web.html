@@ -18,14 +18,15 @@
           id="search"
           style="margin-left: 10px"
           type="text"
+          name="keyword"
           placeholder="검색어를 입력하세요"
         />
         <button id="btn" style="margin: 10px">검색</button>
       </div>
 
-      <select id="country" style="margin: 10px"></select>
+      <select name="country" id="country" style="margin: 10px"></select>
 
-      <select id="news" style="margin: 10px"></select>
+      <select name="news" id="news" style="margin: 10px"></select>
     </div>
 
     <div id="map"></div>
@@ -117,7 +118,7 @@
     </script>
 
     <script>
-      var map;
+      let map;
       function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
           zoom: 8,
