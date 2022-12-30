@@ -1,8 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 from DB.insert_item import insertItem
 from DB.my_db import getLocalDB
+
 
 url = 'https://www.estadao.com.br/politica/eleicoes/'   # 동일 바꿔야함
 
@@ -21,10 +23,13 @@ for i in l:  # 동일
     dic['category'] = '정치'  # 동일 바꿔야함
     dic['url'] = i.find('a')['href']
     dic['title'] = i.find('h3').text
+    dic['createdAt'] = datetime.now()
     item.append(dic)  # 동일
 
-# # db에 저장
-# print('db에 저장')  # 동일
-# db = getLocalDB()  # 동일
-# insertItem(db, item)  # 동일
-# db.close()  # 동일
+print(item)
+
+# db에 저장
+print('db에 저장')  # 동일
+db = getLocalDB()  # 동일
+insertItem(db, item)  # 동일
+db.close()  # 동일
