@@ -9,7 +9,10 @@ sqlCreateTable = "CREATE TABLE %s (id INT NOT NULL AUTO_INCREMENT, \
                                    category VARCHAR(50) NOT NULL, \
                                    url VARCHAR(255) NOT NULL, \
                                    title VARCHAR(255) NOT NULL, \
-                                   PRIMARY KEY (id))"
+                                   createdAt DATETIME NOT NULL, \
+                                   PRIMARY KEY (id), \
+                                   UNIQUE KEY (url) \
+                                   )"
 
 db = getLocalDB()
 cursor = db.cursor()
