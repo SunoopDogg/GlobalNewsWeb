@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-def get_brazil_politics():
+def get_brazil_politics():  # 바꿔야함
     url = 'https://www.estadao.com.br/politica/eleicoes/'  # 바꿔야함
 
     r = requests.get(url)
@@ -26,3 +26,6 @@ def get_brazil_politics():
 
     print(item)
     return item
+
+
+get_brazil_politics()   # 바꿔야함
