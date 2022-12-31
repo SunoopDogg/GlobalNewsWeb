@@ -1,7 +1,7 @@
 def insertItem(DB, item):  # {
     TABLE_NAME = "globalNewsWeb"
 
-    sqlInsert = f"INSERT INTO {TABLE_NAME} (country, category, url, title) VALUES ('%s', '%s', '%s', '%s')"
+    sqlInsert = f"INSERT IGNORE INTO {TABLE_NAME} (country, category, url, title, createdAt) VALUES ('%s', '%s', '%s', '%s', NOW())"
 
     db = DB
     cursor = db.cursor()
