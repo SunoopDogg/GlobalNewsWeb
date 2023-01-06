@@ -139,7 +139,9 @@
 
           marker.addListener("click", () => {
             map.panTo(marker.position);
-            infowindow.setContent(name);
+            infowindow.setContent(
+              `<div><a href="https://www.google.com/search?q=${name}">${name}</a></div>`
+            );
             infowindow.open({
               anchor: marker,
               map,
