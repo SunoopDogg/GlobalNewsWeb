@@ -3,15 +3,14 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-def get_china_economy():  # 바꿔야함
-    url = 'https://finance.cctv.com/index.shtml?spm=C94433.Pt3TM2eA7qqo.E2XVQsMhlk44.6'  # 바꿔야함
+def get_china_economics():  # 바꿔야함
+    url = 'http://www.hinews.cn/licai/news/index.shtml'  # 바꿔야함
 
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    table = soup.find_all('div', {'class': 'con'})[0]   # F12로 찾아서 바꿔야함
-    l = table.find_all('li')                            # F12로 찾아서 바꿔야함
-    print(table)
+    table = soup.find_all('div', {'class': 'w848'})[0]   # F12로 찾아서 바꿔야함
+    l = table.find_all('li', {'class': 'mb42'})   # F12로 찾아서 바꿔야함
 
     item = []
 
@@ -29,4 +28,4 @@ def get_china_economy():  # 바꿔야함
     return item
 
 
-get_china_economy()   # 바꿔야함
+get_china_economics()   # 바꿔야함

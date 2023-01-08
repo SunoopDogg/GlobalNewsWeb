@@ -4,13 +4,13 @@ from datetime import datetime
 
 
 def get_china_sports():  # 바꿔야함
-    url = 'https://sports.cctv.com/?spm=C96370.PPDB2vhvSivD.E59hodVIdh2C.7'  # 바꿔야함
+    url = 'http://www.hinews.cn/news/youxi/'  # 바꿔야함
 
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    table = soup.find_all('div', {'class': 'col_w_800'})[0]   # F12로 찾아서 바꿔야함
-    l = table.find_all('li')                            # F12로 찾아서 바꿔야함
+    table = soup.find_all('div', {'class': 'main_l'})[0]   # F12로 찾아서 바꿔야함
+    l = table.find_all('div', {'class': 'mr56'})   # F12로 찾아서 바꿔야함
 
     item = []
 
