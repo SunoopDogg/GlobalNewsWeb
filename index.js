@@ -1,16 +1,71 @@
-const express = require('express');
-const mysql = require('mysql');
-const db = require('./db.js');
-const myDB = mysql.createConnection(db);
+const app = require("express")();
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
 
-const app = express();
+const connection = require("./db.js");
 
-app.set('port', process.env.PORT || 3000);
+let country = require("./country.js");
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+async function getCountryData(countryName, category) {
+  const [rows, fields] = await (
+    await connection
+  ).execute(
+    `SELECT * FROM globalnewsweb WHERE country = '${countryName}' AND category = '${category}' ORDER BY createdAt DESC LIMIT 5`
+  );
+
+  return rows;
+}
+
+async function getCountryDataAll() {
+  const result = [];
+  const category = ["정치", "경제", "스포츠"];
+
+  for (let i = 0; i < country.length; i++) {
+    const dic = {};
+    dic["name"] = country[i].name;
+
+    for (let j = 0; j < category.length; j++) {
+      dic["category"] = category[j];
+
+      const data = await getCountryData(country[i].name, category[j]);
+      const info = { url: [], title: [] };
+
+      for (let i = 0; i < data.length; i++) {
+        info.url.push(data[i].url);
+        info.title.push(data[i].title);
+      }
+
+      dic[category[j]] = info;
+    }
+
+    result.push(dic);
+  }
+  return result;
+}
+
+app.use(require("express").static("public"));
+
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/public/web.html");
 });
 
-app.listen(app.get('port'), () => {
-    console.log('Server is running on port', app.get('port'));
+server.listen(3000, function () {
+  console.log("Socket IO server listening on port 3000");
+});
+
+io.on("connection", function (socket) {
+  socket.on("pin", async function (f) {
+    const data = await getCountryData(f.country, f.category);
+
+    const info = { url: [], title: [] };
+
+    for (let i = 0; i < data.length; i++) {
+      info.url.push(data[i].url);
+      info.title.push(data[i].title);
+    }
+
+    console.log(info);
+
+    socket.emit("ping", info);
+  });
 });
