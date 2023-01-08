@@ -4,14 +4,13 @@ from datetime import datetime
 
 
 def get_china_politics():  # 바꿔야함
-    url = 'https://news.cctv.com/china/?spm=C94212.PZd4MuV7QTb5.En9cOZ8lC46M.2'  # 바꿔야함
+    url = 'http://www.hinews.cn/news/tianxia/'  # 바꿔야함
 
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    table = soup.find_all('ul', {'id': 'newslist'})[0]   # F12로 찾아서 바꿔야함
-    l = table.find_all('li')                            # F12로 찾아서 바꿔야함
-    print(table)
+    table = soup.find_all('div', {'class': 'w848'})[0]   # F12로 찾아서 바꿔야함
+    l = table.find_all('li', {'class': 'mb42'})   # F12로 찾아서 바꿔야함
 
     item = []
 
