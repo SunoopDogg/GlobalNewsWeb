@@ -27,6 +27,3 @@ def get_japan_politics():  # 바꿔야함 // 진행중
 
     print(item)
     return item
-
-
-get_japan_politics()   # 바꿔야함

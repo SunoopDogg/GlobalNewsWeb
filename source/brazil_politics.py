@@ -26,6 +26,3 @@ def get_brazil_politics():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_brazil_politics()   # 바꿔야함

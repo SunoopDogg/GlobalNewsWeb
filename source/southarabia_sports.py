@@ -26,6 +26,3 @@ def get_southarabia_sports():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_southarabia_sports()   # 바꿔야함

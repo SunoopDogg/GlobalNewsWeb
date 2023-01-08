@@ -27,6 +27,3 @@ def get_argentina_sports():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_argentina_sports()   # 바꿔야함

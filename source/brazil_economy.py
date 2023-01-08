@@ -28,6 +28,3 @@ def get_brazil_economy():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_brazil_economy()    # 바꿔야함

@@ -26,6 +26,3 @@ def get_usa_economy():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_usa_economy()   # 바꿔야함

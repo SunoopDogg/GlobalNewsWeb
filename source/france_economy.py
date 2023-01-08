@@ -27,6 +27,3 @@ def get_france_economics():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_france_economics()   # 바꿔야함

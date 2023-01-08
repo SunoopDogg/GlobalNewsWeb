@@ -26,6 +26,3 @@ def get_canada_economics():  # 바꿔야함 // 진행중
 
     print(item)
     return item
-
-
-get_canada_economics()   # 바꿔야함
