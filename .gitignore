@@ -1,1 +1,4 @@
+.gitignore
+db.js
 /venv
+/node_modules
