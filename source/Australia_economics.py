@@ -26,6 +26,3 @@ def get_Australia_economics():
 
     print(item)
     return item
-
-
-print(get_Australia_economics())

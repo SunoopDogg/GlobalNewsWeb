@@ -46,10 +46,10 @@ item = []
 
 print('start')
 
-print('get argentina politics')
-item += get_argentina_politics()  # 아르헨티나 정치
-item += get_argentina_economics()  # 아르헨티나 경제
-item += get_argentina_sports()  # 아르헨티나 스포츠
+# print('get argentina politics')
+# item += get_argentina_politics()  # 아르헨티나 정치
+# item += get_argentina_economics()  # 아르헨티나 경제
+# item += get_argentina_sports()  # 아르헨티나 스포츠
 
 # print('get australia politics')
 # item += get_Australia_politics()  # 호주 정치

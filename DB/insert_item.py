@@ -7,6 +7,7 @@ def insertItem(DB, item):  # {
     cursor = db.cursor()
 
     for i in range(len(item)):  # {
+        item[i]['title'] = item[i]['title'].replace("'", " ")
         cursor.execute(sqlInsert % (
             item[i]['country'], item[i]['category'], item[i]['url'], item[i]['title']))
     # }
