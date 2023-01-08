@@ -4,13 +4,13 @@ from datetime import datetime
 
 
 def get_usa_politics():  # 바꿔야함
-    url = 'https://edition.cnn.com/politics'  # 바꿔야함
+    url = 'https://www.washingtonpost.com/politics/?itid=hp_top_nav_politics'  # 바꿔야함
 
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    table = soup.find_all('div', {'class': 'container__field-wrapper container_lead-plus-headlines__field-wrapper'})[0]   # F12로 찾아서 바꿔야함
-    l = table.find_all('div', {'data-unselectable': 'true'})   # F12로 찾아서 바꿔야함
+    table = soup.find_all('article', {'class': 'b-l'})[0]   # F12로 찾아서 바꿔야함
+    l = table.find_all('div', {'class': 'pb-md'})   # F12로 찾아서 바꿔야함
 
     item = []
 
