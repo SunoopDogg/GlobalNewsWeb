@@ -3,13 +3,14 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-def get_france_politics():  # 바꿔야함
+def get_france_economics():  # 바꿔야함
     url = 'https://www.lemonde.fr/economie-francaise/'  # 바꿔야함
 
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    table = soup.find_all('section', {'class': 'page__content'})[0]   # F12로 찾아서 바꿔야함
+    table = soup.find_all('section', {'class': 'page__content'})[
+        0]   # F12로 찾아서 바꿔야함
     l = table.find_all('div', {'class': 'thread'})   # F12로 찾아서 바꿔야함
 
     item = []
@@ -28,4 +29,4 @@ def get_france_politics():  # 바꿔야함
     return item
 
 
-get_france_politics()   # 바꿔야함
+get_france_economics()   # 바꿔야함
