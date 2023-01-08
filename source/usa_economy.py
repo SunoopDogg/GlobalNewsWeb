@@ -19,7 +19,7 @@ def get_usa_economy():  # 바꿔야함
         dic['country'] = '미국'  # 바꿔야함
         dic['category'] = '경제'  # 바꿔야함
         dic['url'] = i.find('a')['href']    # F12로 찾아서 바꿔야함
-        dic['title'] = i.find('a').text     # F12로 찾아서 바꿔야함
+        dic['title'] = i.find('h3').text     # F12로 찾아서 바꿔야함
         item.append(dic)
         if len(item) == 5:
             break
