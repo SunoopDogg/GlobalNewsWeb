@@ -25,6 +25,3 @@ def get_indonesia_economy():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_indonesia_economy()   # 바꿔야함

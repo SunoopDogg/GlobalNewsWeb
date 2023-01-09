@@ -13,7 +13,7 @@ def get_Australia_economics():
     l = table.find_all('div', {'class': '_1YzQk'})  # F12로 찾아서 바꿔야함
 
     item = []
- 
+
     for i in l:
         dic = {}
         dic['country'] = '호주'  # 바꿔야함
@@ -23,8 +23,6 @@ def get_Australia_economics():
         item.append(dic)
         if len(item) == 5:
             break
-    
+
     print(item)
     return item
-
-print(get_Australia_economics())

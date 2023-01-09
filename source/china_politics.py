@@ -26,6 +26,3 @@ def get_china_politics():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_china_politics()   # 바꿔야함

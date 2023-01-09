@@ -9,8 +9,10 @@ def get_russia_sports():  # 바꿔야함
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    table = soup.find_all('ul', {'class': 'article-listing__day-list'})[0]   # F12로 찾아서 바꿔야함
-    l = table.find_all('li', {'class': 'article-listing__item'})   # F12로 찾아서 바꿔야함
+    table = soup.find_all(
+        'ul', {'class': 'article-listing__day-list'})[0]   # F12로 찾아서 바꿔야함
+    l = table.find_all(
+        'li', {'class': 'article-listing__item'})   # F12로 찾아서 바꿔야함
 
     item = []
 
@@ -26,6 +28,3 @@ def get_russia_sports():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_russia_sports()   # 바꿔야함

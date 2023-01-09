@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def get_Australia_sport():
+def get_Australia_sports():
     url = 'https://www.smh.com.au/sport'  # 바꿔야함
 
     r = requests.get(url)
@@ -13,7 +13,7 @@ def get_Australia_sport():
     l = table.find_all('div', {'class': '_1YzQk'})  # F12로 찾아서 바꿔야함
 
     item = []
- 
+
     for i in l:
         dic = {}
         dic['country'] = '호주'  # 바꿔야함
@@ -23,8 +23,6 @@ def get_Australia_sport():
         item.append(dic)
         if len(item) == 5:
             break
-    
+
     print(item)
     return item
-
-print(get_Australia_sport())

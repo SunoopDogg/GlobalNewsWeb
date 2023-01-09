@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def get_southarabia_economy():  # 바꿔야함
+def get_southarabia_sports():  # 바꿔야함
     url = 'https://www.okaz.com.sa/economy'  # 바꿔야함
 
     r = requests.get(url)
@@ -17,7 +17,7 @@ def get_southarabia_economy():  # 바꿔야함
     for i in l:
         dic = {}
         dic['country'] = '사우디아라비아'   # 바꿔야함
-        dic['category'] = '경제'    # 바꿔야함
+        dic['category'] = '스포츠'    # 바꿔야함
         dic['url'] = i.find('a')['href']    # F12로 찾아서 바꿔야함
         dic['title'] = i.find('a').text   # F12로 찾아서 바꿔야함
         item.append(dic)
@@ -26,6 +26,3 @@ def get_southarabia_economy():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_southarabia_economy()   # 바꿔야함

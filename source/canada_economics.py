@@ -2,13 +2,14 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def get_uk_economics():  # 바꿔야함 // 진행중
+def get_canada_economics():  # 바꿔야함 // 진행중
     url = 'https://www.thedailyscrum.ca/category/business/'  # 바꿔야함
 
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    table = soup.find_all('div', {'class': 'archive-content-wrapper'})[0]    # F12로 찾아서 바꿔야함
+    table = soup.find_all(
+        'div', {'class': 'archive-content-wrapper'})[0]    # F12로 찾아서 바꿔야함
     l = table.find_all('article', {'class': 'post'})   # F12로 찾아서 바꿔야함
 
     item = []
@@ -25,6 +26,3 @@ def get_uk_economics():  # 바꿔야함 // 진행중
 
     print(item)
     return item
-
-
-get_uk_economics()   # 바꿔야함

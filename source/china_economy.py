@@ -26,6 +26,3 @@ def get_china_economics():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_china_economics()   # 바꿔야함

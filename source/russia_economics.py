@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-def get_russia_sports():  # 바꿔야함
+def get_russia_economics():  # 바꿔야함
     url = 'https://spb.mk.ru/economics/'  # 바꿔야함
 
     r = requests.get(url)
@@ -26,6 +26,3 @@ def get_russia_sports():  # 바꿔야함
 
     print(item)
     return item
-
-
-get_russia_sports()   # 바꿔야함

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
+  <body id="map_page">
     <div id="button">
       <button onclick="showMenu()">메뉴</button>
     </div>
@@ -28,7 +28,7 @@
 
       <select name="news" id="news" style="margin: 10px"></select>
 
-      <button id="test" style="margin: 10px">test</button>
+      <div id="a"></div>
     </div>
 
     <div id="map"></div>
@@ -43,6 +43,7 @@
 
     <script>
       const socket = io();
+      $("#map_page").addClass("animate_content");
     </script>
 
     <script>
@@ -73,7 +74,7 @@
         { name: "영국", lat: 51.5074, lng: -0.1278 },
         { name: "프랑스", lat: 48.8566, lng: 2.3522 },
         { name: "캐나다", lat: 45.4215, lng: -75.6972 },
-        { name: "대한민국", lat: 37.5665, lng: 126.978 },
+        { name: "한국", lat: 37.5665, lng: 126.978 },
         { name: "러시아", lat: 55.7558, lng: 37.6173 },
         { name: "호주", lat: -33.8688, lng: 151.2093 },
         { name: "스웨덴", lat: 59.3293, lng: 18.0686 },

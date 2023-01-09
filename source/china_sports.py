@@ -19,13 +19,10 @@ def get_china_sports():  # 바꿔야함
         dic['country'] = '중국'  # 바꿔야함
         dic['category'] = '스포츠'  # 바꿔야함
         dic['url'] = i.find('a')['href']    # F12로 찾아서 바꿔야함
-        dic['title'] = i.find('a').text     # F12로 찾아서 바꿔야함
+        dic['title'] = i.find('p').text     # F12로 찾아서 바꿔야함
         item.append(dic)
         if len(item) == 5:
             break
 
     print(item)
     return item
-
-
-get_china_sports()   # 바꿔야함
