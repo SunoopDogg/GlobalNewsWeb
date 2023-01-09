@@ -25,3 +25,21 @@ html, body{
   left: 10px;
   z-index: 10001;
 }
+
+.animate_content {
+  animation: animate 1.5s ease;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0.2, 0.002);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1, 0.002);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
+  <body id="map_page">
     <div id="button">
       <button onclick="showMenu()">메뉴</button>
     </div>
@@ -43,6 +43,7 @@
 
     <script>
       const socket = io();
+      $("#map_page").addClass("animate_content");
     </script>
 
     <script>

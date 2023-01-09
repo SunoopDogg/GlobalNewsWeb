@@ -46,7 +46,11 @@ async function getCountryDataAll() {
 app.use(require("express").static("public"));
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/public/web.html");
+  res.sendFile(__dirname + "/public/main.html");
+});
+
+app.get("/map", function (req, res) {
+  res.sendFile(__dirname + "/public/map.html");
 });
 
 server.listen(3000, function () {

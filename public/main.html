@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>main</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <!--
+            //	home
+            ///////////////////////////////////-->
+    <div class="page__style home">
+      <div class="page__description">
+        <div id="home">
+          <div class="box"></div>
+
+          <h1></h1>
+
+          <button class="btn_nav home_link"></button>
+
+          <p>
+            Thanks
+            <a
+              href="https://codyhouse.co/gem/animated-page-transition/"
+              target="_blank"
+              >codyhouse.co</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(".btn_nav").click(function () {
+        // animate content
+        $(".page__style").addClass("animate_content");
+
+        setTimeout(function () {
+          $(".page__style").removeClass("animate_content");
+        }, 1500);
+
+        // 페이지 이동
+        setTimeout(function () {
+          location.href = "web.html";
+        }, 1400);
+
+        //remove fadeIn class after 1500ms
+        // setTimeout(function () {
+        //   $(".page__style").removeClass("fadeIn");
+        // }, 1500);
+      });
+
+      // $(".home_link").click(function () {
+      //   setTimeout(function () {
+      //     $(".home").addClass("fadeIn");
+      //   }, 1500);
+      // });
+    </script>
+  </body>
+</html>
